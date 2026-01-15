@@ -292,16 +292,16 @@ body {
   }
 
   .countdown__timer {
-    gap: 8px;
+    gap: 10px;
     flex-wrap: nowrap;
   }
 
   .countdown__timer span {
-    font-size: clamp(28px, 10vw, 38px);
+    font-size: 40px;
   }
 
   .countdown__timer small {
-    font-size: 10px;
+    font-size: 11px;
   }
 }
 
@@ -1412,13 +1412,10 @@ body {
 @media (max-width: 620px) {
   .modal__shell {
     width: 100%;
-    padding: 0;
-    border-radius: 0;
+    padding: 18px;
+    /* marco oscuro mÃ¡s chico */
+    border-radius: 22px;
     overflow: hidden;
-  }
-
-  .modal__shell::before {
-    display: none;
   }
 
   .modal__panel {
@@ -1460,26 +1457,20 @@ body {
   }
 
   .modal__map iframe {
-    height: min(38vh, 360px);
-    border-radius: 10px;
+    height: min(40vh, 420px);
   }
 
   .modal__iframe iframe {
-    height: min(38vh, 360px);
-    border-radius: 10px;
+    height: min(40vh, 420px);
   }
 }
 
 @media (max-width: 700px) {
   .modal__shell {
-    width: 100%;
-    padding: 0;
-    border-radius: 0;
+    width: min(100%, calc(100% - 16px));
+    padding: 10px;
+    border-radius: 22px;
     overflow: hidden;
-  }
-
-  .modal__shell::before {
-    display: none;
   }
 
   .modal__panel {
@@ -1513,8 +1504,12 @@ body {
 
   .modal__map iframe,
   .modal__iframe iframe {
-    height: min(38vh, 360px);
-    border-radius: 10px;
+    height: min(42vh, 420px);
+    border-radius: 12px;
+  }
+
+  .modal__corner {
+    display: none;
   }
 
   #modalDressCode .dress-grid {
@@ -1523,10 +1518,10 @@ body {
   }
 
   #modalDressCode .modal__panel {
-    margin: 0;
-    padding: 18px 16px 16px;
+    margin: 12px;
+    padding: 18px 14px 16px;
     height: auto;
-    max-height: calc(100vh - 40px);
+    max-height: calc(100vh - 140px);
     overflow: auto;
   }
 
