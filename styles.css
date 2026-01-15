@@ -90,10 +90,6 @@ body {
   height: 88vh;
 }
 
-.hero-photo {
-  clip-path: inset(0 0 var(--hero-clip, 0%) 0);
-  transition: clip-path .0s ease;
-}
 
 .hero__photo-img {
   width: 100%;
@@ -113,16 +109,6 @@ body {
   pointer-events: none;
 }
 
-.hero-photo::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: var(--cover, 0px);
-  background: var(--bg);
-  pointer-events: none;
-}
 
 
 .hero__panel {
@@ -214,20 +200,20 @@ body {
 
 @media (max-width: 768px) {
   .countdown__inner {
-    padding: 32px 12px 46px;
+    padding: 28px 12px 42px;
   }
 
   .countdown__timer {
-    gap: 12px;
-    flex-wrap: wrap;
+    gap: 8px;
+    flex-wrap: nowrap;
   }
 
   .countdown__timer span {
-    font-size: 42px;
+    font-size: clamp(28px, 10vw, 38px);
   }
 
   .countdown__timer small {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .countdown__heart {
@@ -236,6 +222,10 @@ body {
 }
 
 @media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
   .hero-scroll {
     height: auto;
   }
@@ -243,6 +233,8 @@ body {
   .hero-grid {
     grid-template-columns: 1fr;
     height: auto;
+    width: 100%;
+    max-width: 100%;
   }
 
   .hero-sticky,
@@ -263,7 +255,7 @@ body {
   }
 
   .hero__content {
-    padding: 0 12px 10px;
+    padding: 28px 12px 10px;
   }
 
   .hero__date {
@@ -284,19 +276,32 @@ body {
   }
 
   .countdown__inner {
-    padding: 48px 12px 60px;
+    padding: 28px 12px 42px;
+  }
+
+  .countdown__wrap,
+  .guests__wrap,
+  .events__wrap,
+  .gallery__wrap,
+  .party__wrap,
+  .ig__wrap,
+  .prefoot__wrap,
+  .foot__wrap {
+    width: 100%;
+    max-width: 100%;
   }
 
   .countdown__timer {
-    gap: 16px;
+    gap: 8px;
+    flex-wrap: nowrap;
   }
 
   .countdown__timer span {
-    font-size: 48px;
+    font-size: clamp(28px, 10vw, 38px);
   }
 
   .countdown__timer small {
-    font-size: 12px;
+    font-size: 10px;
   }
 }
 
@@ -1229,6 +1234,11 @@ body {
   /* mÃ¡s compacto */
 }
 
+.modal__map {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
 @media (max-height: 700px) {
   .modal-map {
     height: 260px;
@@ -1402,13 +1412,29 @@ body {
 @media (max-width: 620px) {
   .modal__shell {
     width: 100%;
-    padding: 18px;
-    /* marco oscuro mÃ¡s chico */
+    padding: 0;
+    border-radius: 0;
+    overflow: hidden;
+  }
+
+  .modal__shell::before {
+    display: none;
   }
 
   .modal__panel {
-    border-radius: 18px;
-    padding: 16px 14px 14px;
+    border-radius: 0;
+    padding: 20px 16px 18px;
+    max-height: calc(100vh - 40px);
+    overflow: auto;
+  }
+
+  .modal__close {
+    right: 16px;
+    top: 12px;
+    width: 36px;
+    height: 36px;
+    font-size: 26px;
+    line-height: 36px;
   }
 
   .modal__icon {
@@ -1418,6 +1444,7 @@ body {
 
   .modal__title {
     font-size: 28px;
+    padding: 0 36px;
   }
 
   .modal__body {
@@ -1433,29 +1460,61 @@ body {
   }
 
   .modal__map iframe {
-    height: min(64vh, 560px);
+    height: min(38vh, 360px);
+    border-radius: 10px;
   }
 
   .modal__iframe iframe {
-    height: min(64vh, 560px);
+    height: min(38vh, 360px);
+    border-radius: 10px;
   }
 }
 
 @media (max-width: 700px) {
   .modal__shell {
-    width: min(100%, calc(100% - 16px));
-    padding: 10px;
+    width: 100%;
+    padding: 0;
+    border-radius: 0;
+    overflow: hidden;
+  }
+
+  .modal__shell::before {
+    display: none;
   }
 
   .modal__panel {
-    margin: 12px;
-    padding: 18px 14px 16px;
+    margin: 0;
+    border-radius: 0;
+    padding: 20px 16px 18px;
+    max-height: calc(100vh - 40px);
+    overflow: auto;
+  }
+
+  .modal__corner {
+    display: none;
+  }
+
+  .modal__close {
+    right: 16px;
+    top: 12px;
+    width: 36px;
+    height: 36px;
+    font-size: 26px;
+    line-height: 36px;
+  }
+
+  .modal__icon {
+    margin-top: 8px;
+  }
+
+  .modal__title {
+    padding: 0 36px;
   }
 
   .modal__map iframe,
   .modal__iframe iframe {
-    height: min(60vh, 520px);
-    border-radius: 12px;
+    height: min(38vh, 360px);
+    border-radius: 10px;
   }
 
   #modalDressCode .dress-grid {
@@ -1464,8 +1523,11 @@ body {
   }
 
   #modalDressCode .modal__panel {
-    margin: 12px;
-    padding: 18px 14px 16px;
+    margin: 0;
+    padding: 18px 16px 16px;
+    height: auto;
+    max-height: calc(100vh - 40px);
+    overflow: auto;
   }
 
   #modalDressCode .dress-header {
