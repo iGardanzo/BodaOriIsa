@@ -90,10 +90,6 @@ body {
   height: 88vh;
 }
 
-.hero-photo {
-  clip-path: inset(0 0 var(--hero-clip, 0%) 0);
-  transition: clip-path .0s ease;
-}
 
 .hero__photo-img {
   width: 100%;
@@ -113,16 +109,6 @@ body {
   pointer-events: none;
 }
 
-.hero-photo::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: var(--cover, 0px);
-  background: var(--bg);
-  pointer-events: none;
-}
 
 
 .hero__panel {
@@ -263,7 +249,7 @@ body {
   }
 
   .hero__content {
-    padding: 0 12px 10px;
+    padding: 28px 12px 10px;
   }
 
   .hero__date {
@@ -288,15 +274,16 @@ body {
   }
 
   .countdown__timer {
-    gap: 16px;
+    gap: 10px;
+    flex-wrap: nowrap;
   }
 
   .countdown__timer span {
-    font-size: 48px;
+    font-size: 40px;
   }
 
   .countdown__timer small {
-    font-size: 12px;
+    font-size: 11px;
   }
 }
 
@@ -1229,6 +1216,11 @@ body {
   /* mÃ¡s compacto */
 }
 
+.modal__map {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
 @media (max-height: 700px) {
   .modal-map {
     height: 260px;
@@ -1404,6 +1396,8 @@ body {
     width: 100%;
     padding: 18px;
     /* marco oscuro mÃ¡s chico */
+    border-radius: 22px;
+    overflow: hidden;
   }
 
   .modal__panel {
@@ -1433,11 +1427,11 @@ body {
   }
 
   .modal__map iframe {
-    height: min(64vh, 560px);
+    height: min(40vh, 420px);
   }
 
   .modal__iframe iframe {
-    height: min(64vh, 560px);
+    height: min(40vh, 420px);
   }
 }
 
@@ -1445,6 +1439,8 @@ body {
   .modal__shell {
     width: min(100%, calc(100% - 16px));
     padding: 10px;
+    border-radius: 22px;
+    overflow: hidden;
   }
 
   .modal__panel {
@@ -1454,8 +1450,12 @@ body {
 
   .modal__map iframe,
   .modal__iframe iframe {
-    height: min(60vh, 520px);
+    height: min(42vh, 420px);
     border-radius: 12px;
+  }
+
+  .modal__corner {
+    display: none;
   }
 
   #modalDressCode .dress-grid {
@@ -1466,6 +1466,9 @@ body {
   #modalDressCode .modal__panel {
     margin: 12px;
     padding: 18px 14px 16px;
+    height: auto;
+    max-height: calc(100vh - 140px);
+    overflow: auto;
   }
 
   #modalDressCode .dress-header {
