@@ -139,34 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Hero overlay on scroll: foto gana protagonismo al hacer scroll
-  const hero = document.querySelector('.hero-scroll');
-  const heroPhoto = document.querySelector('.hero-photo');
-  if (hero && heroPhoto) {
-    let raf = null;
-
-    const clamp01 = (n) => Math.min(1, Math.max(0, n));
-
-    const updateOverlay = () => {
-      const rect = hero.getBoundingClientRect();
-      const total = Math.max(1, rect.height);
-      const progress = clamp01(-rect.top / total);
-      const overlay = Math.min(0.8, progress * 1.05);
-      heroPhoto.style.setProperty('--hero-overlay', overlay.toFixed(3));
-      heroPhoto.style.setProperty('--hero-clip', `${(progress * 100).toFixed(2)}%`);
-      hero.style.setProperty('--hero-fade', progress.toFixed(3));
-      raf = null;
-    };
-
-    const onScroll = () => {
-      if (raf) return;
-      raf = requestAnimationFrame(updateOverlay);
-    };
-
-    updateOverlay();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', updateOverlay);
-  }
 });
 
 
