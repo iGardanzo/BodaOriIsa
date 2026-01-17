@@ -35,7 +35,7 @@ setInterval(tick, 1000);
   const params = new URLSearchParams(window.location.search);
   const rawGuests = params.get('guests');
 
-  // Si no hay invitados por query â†’ ocultamos la secciÃ³n completa
+  // Si no hay invitados por query ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ ocultamos la secciÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n completa
   if (!rawGuests) {
     section.style.display = 'none';
     return;
@@ -80,13 +80,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const getModals = () => [...document.querySelectorAll('.modal')];
   const bgAudio = document.getElementById('bg-audio');
   const audioToggle = document.getElementById('audioToggle');
-  let isPlaying = true;
 
-    const tryPlayAudio = () => {
+  const tryPlayAudio = () => {
     if (!bgAudio) return;
-    const play = bgAudio.play();
-    if (play && play.catch) play.catch(() => {});
-    isPlaying = !bgAudio.paused;
+    const playAttempt = bgAudio.play();
+    if (playAttempt && playAttempt.catch) playAttempt.catch(() => {});
   };
 
   const syncAudioToggle = () => {
@@ -97,17 +95,22 @@ document.addEventListener('DOMContentLoaded', () => {
     audioToggle.setAttribute('title', playing ? 'Pausar' : 'Reproducir');
   };
 
-  // Intenta reproducir al cargar y fuerza con la primera interacción (políticas de autoplay)
   tryPlayAudio();
   syncAudioToggle();
-  ['click', 'touchstart'].forEach(evt => {
+
+  ['click', 'touchstart', 'scroll'].forEach(evt => {
     document.addEventListener(evt, () => {
       if (bgAudio && bgAudio.paused) {
         tryPlayAudio();
-        syncAudioToggle();
       }
+      syncAudioToggle();
     }, { once: true });
   });
+
+  if (bgAudio) {
+    bgAudio.addEventListener('play', syncAudioToggle);
+    bgAudio.addEventListener('pause', syncAudioToggle);
+  }
 
   if (audioToggle) {
     audioToggle.addEventListener('click', () => {
@@ -120,7 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
       syncAudioToggle();
     });
   }
-function openModal(modalId) {
+
+  function openModal(modalId) {
     const modal = document.getElementById(modalId);
     if (!modal) return;
 
@@ -170,30 +174,9 @@ function openModal(modalId) {
       return;
     }
 
-    // click fuera del panel
     const modalBg = e.target.classList.contains('modal') ? e.target : null;
     if (modalBg) closeModal(modalBg);
   });
-
-  if (audioToggle) {
-    audioToggle.classList.add('is-play');
-    audioToggle.setAttribute('aria-label', 'Pausar música');
-    audioToggle.setAttribute('title', 'Pausar');
-    audioToggle.addEventListener('click', () => {
-      if (!bgAudio) return;
-      if (bgAudio.paused) {
-        tryPlayAudio();
-        audioToggle.classList.add('is-play');
-        audioToggle.setAttribute('aria-label', 'Pausar música');
-        audioToggle.setAttribute('title', 'Pausar');
-      } else {
-        bgAudio.pause();
-        audioToggle.classList.remove('is-play');
-        audioToggle.setAttribute('aria-label', 'Reproducir música');
-        audioToggle.setAttribute('title', 'Reproducir');
-      }
-    });
-  }
 
   overlay.addEventListener('click', () => {
     const openEl = getModals().find(m => !m.hidden);
@@ -206,9 +189,7 @@ function openModal(modalId) {
       if (openEl) closeModal(openEl);
     }
   });
-
 });
-
 
 // Helper: convertir URL de Google Forms a EMBED correcto
 // Uso: const embed = toGoogleFormsEmbed("https://docs.google.com/forms/d/e/XXXX/viewform?usp=sharing");
@@ -226,7 +207,7 @@ function toGoogleFormsEmbed(url) {
 }
 
 /* =======================
-   Carrusel auto + loop (sin librerÃ­as)
+   Carrusel auto + loop (sin librerÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­as)
    - loop real: al llegar al final vuelve al inicio
    - respeta prefers-reduced-motion
 ======================= */
@@ -259,7 +240,7 @@ function toGoogleFormsEmbed(url) {
   }
 
   function maxIndex() {
-    // Ãºltimo index que aÃºn muestra una "pÃ¡gina" completa
+    // ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âºltimo index que aÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âºn muestra una "pÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡gina" completa
     return Math.max(0, slides.length - slidesPerView());
   }
 
@@ -278,7 +259,7 @@ function toGoogleFormsEmbed(url) {
 
   function renderDots() {
     dotsWrap.innerHTML = '';
-    // dots = cantidad de "pÃ¡ginas" posibles
+    // dots = cantidad de "pÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡ginas" posibles
     const pages = maxIndex() + 1;
     for (let i = 0; i < pages; i++) {
       const b = document.createElement('button');
@@ -295,7 +276,7 @@ function toGoogleFormsEmbed(url) {
       track.style.transition = 'none';
       requestAnimationFrame(() => {
         track.style.transform = `translate3d(${-(index * slideWidth())}px,0,0)`;
-        // re-habilitar transiciÃ³n
+        // re-habilitar transiciÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n
         requestAnimationFrame(() => {
           track.style.transition = 'transform 480ms ease';
         });
@@ -344,7 +325,7 @@ function toGoogleFormsEmbed(url) {
   btnNext?.addEventListener('click', () => { next(); startAuto(); });
   btnPrev?.addEventListener('click', () => { prev(); startAuto(); });
 
-  // Pausar al hover (desktop) / al tocar (mobile)
+  // Pausar mÃƒÆ’Ã‚Âºsicaal hover (desktop) / al tocar (mobile)
   viewport.addEventListener('mouseenter', stopAuto);
   viewport.addEventListener('mouseleave', startAuto);
   viewport.addEventListener('touchstart', stopAuto, { passive: true });
@@ -367,6 +348,10 @@ document.querySelectorAll('.anim-adorno-titulo svg .linea path').forEach(p => {
   p.style.strokeDasharray = `${len}`;
   p.style.strokeDashoffset = `${len}`;
 });
+
+
+
+
 
 
 
