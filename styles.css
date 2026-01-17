@@ -292,12 +292,12 @@ body {
   }
 
   .countdown__timer {
-    gap: 10px;
+    gap: 15px !important;
     flex-wrap: nowrap;
   }
 
   .countdown__timer span {
-    font-size: 40px;
+    font-size: 40px !important;
   }
 
   .countdown__timer small {
@@ -355,6 +355,7 @@ body {
     height: 64px;
   }
 }
+
 .love-symbol {
   margin-top: 18px;
   display: flex;
@@ -956,7 +957,7 @@ body {
 /* Responsive */
 @media (max-width: 980px) {
   .events__wrap {
-    padding: 55px 22px;
+    padding: 55px 0px;
   }
 
   .events__grid {
@@ -1985,7 +1986,7 @@ body {
 
 @media (max-width: 980px) {
   .party__wrap {
-    padding: 55px 22px;
+    padding: 55px 0px;
   }
 
   .party__grid {
