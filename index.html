@@ -1631,6 +1631,19 @@
      OVERLAY (uno solo)
      ========================= -->
   <div id="modalOverlay" class="modal-overlay" hidden></div>
+  <audio id="bg-audio" src="assets/audio/tu-corazon-encantado.mp3" preload="auto" autoplay loop hidden aria-hidden="true"></audio>
+  <button id="audioToggle" class="audio-toggle" type="button" aria-label="Pausar música" title="Pausar">
+    <svg class="audio-toggle__icon icon-pause" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M7 3h2a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm8 18h2a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1Z" />
+    </svg>
+    <svg class="audio-toggle__icon icon-play" viewBox="0 0 330 330" aria-hidden="true">
+      <path
+        d="M37.728,328.12c2.266,1.256,4.77,1.88,7.272,1.88c2.763,0,5.522-0.763,7.95-2.28l240-149.999
+        c4.386-2.741,7.05-7.548,7.05-12.72c0-5.172-2.664-9.979-7.05-12.72L52.95,2.28c-4.625-2.891-10.453-3.043-15.222-0.4
+        C32.959,4.524,30,9.547,30,15v300C30,320.453,32.959,325.476,37.728,328.12z" />
+    </svg>
+  </button>
 
   <!-- =========================
      MODAL: SUGERIR CANCIÓN
@@ -1718,6 +1731,15 @@
             <a class="btn-gold"
               href="https://open.spotify.com/playlist/4BDniaYTSoY4L5cOV9d3Am?si=233858baa51f40ca&pt=84d660910fc74c1ce11136862e24f983"
               target="_blank" rel="noreferrer">Ir a la playlist</a>
+          </div>
+
+          <div class="modal__audio">
+            <p class="modal__body">También puedes reproducirla aquí:</p>
+            <audio controls preload="none">
+              <source src="assets/audio/tu-corazon-encantado.mp3" type="audio/mpeg">
+              Tu navegador no soporta audio HTML5.
+            </audio>
+            <small class="modal__body--muted">Reemplaza el MP3 en <code>assets/tu-corazon-encantado.mp3</code> con tu versión instrumental.</small>
           </div>
         </div>
       </div>
@@ -2580,6 +2602,13 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
 
 
 

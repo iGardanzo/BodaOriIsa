@@ -1,4 +1,4 @@
-const target = new Date('2026-04-11T00:00:00');
+﻿const target = new Date('2026-04-11T00:00:00');
 
 function pad(n) { return n.toString().padStart(2, '0') }
 
@@ -35,7 +35,7 @@ setInterval(tick, 1000);
   const params = new URLSearchParams(window.location.search);
   const rawGuests = params.get('guests');
 
-  // Si no hay invitados por query → ocultamos la sección completa
+  // Si no hay invitados por query â†’ ocultamos la secciÃ³n completa
   if (!rawGuests) {
     section.style.display = 'none';
     return;
@@ -78,8 +78,49 @@ setInterval(tick, 1000);
 document.addEventListener('DOMContentLoaded', () => {
   const overlay = document.getElementById('modalOverlay');
   const getModals = () => [...document.querySelectorAll('.modal')];
+  const bgAudio = document.getElementById('bg-audio');
+  const audioToggle = document.getElementById('audioToggle');
+  let isPlaying = true;
 
-  function openModal(modalId) {
+    const tryPlayAudio = () => {
+    if (!bgAudio) return;
+    const play = bgAudio.play();
+    if (play && play.catch) play.catch(() => {});
+    isPlaying = !bgAudio.paused;
+  };
+
+  const syncAudioToggle = () => {
+    if (!audioToggle) return;
+    const playing = bgAudio && !bgAudio.paused;
+    audioToggle.classList.toggle('is-playing', playing);
+    audioToggle.setAttribute('aria-label', playing ? 'Pausar música' : 'Reproducir música');
+    audioToggle.setAttribute('title', playing ? 'Pausar' : 'Reproducir');
+  };
+
+  // Intenta reproducir al cargar y fuerza con la primera interacción (políticas de autoplay)
+  tryPlayAudio();
+  syncAudioToggle();
+  ['click', 'touchstart'].forEach(evt => {
+    document.addEventListener(evt, () => {
+      if (bgAudio && bgAudio.paused) {
+        tryPlayAudio();
+        syncAudioToggle();
+      }
+    }, { once: true });
+  });
+
+  if (audioToggle) {
+    audioToggle.addEventListener('click', () => {
+      if (!bgAudio) return;
+      if (bgAudio.paused) {
+        tryPlayAudio();
+      } else {
+        bgAudio.pause();
+      }
+      syncAudioToggle();
+    });
+  }
+function openModal(modalId) {
     const modal = document.getElementById(modalId);
     if (!modal) return;
 
@@ -134,6 +175,26 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modalBg) closeModal(modalBg);
   });
 
+  if (audioToggle) {
+    audioToggle.classList.add('is-play');
+    audioToggle.setAttribute('aria-label', 'Pausar música');
+    audioToggle.setAttribute('title', 'Pausar');
+    audioToggle.addEventListener('click', () => {
+      if (!bgAudio) return;
+      if (bgAudio.paused) {
+        tryPlayAudio();
+        audioToggle.classList.add('is-play');
+        audioToggle.setAttribute('aria-label', 'Pausar música');
+        audioToggle.setAttribute('title', 'Pausar');
+      } else {
+        bgAudio.pause();
+        audioToggle.classList.remove('is-play');
+        audioToggle.setAttribute('aria-label', 'Reproducir música');
+        audioToggle.setAttribute('title', 'Reproducir');
+      }
+    });
+  }
+
   overlay.addEventListener('click', () => {
     const openEl = getModals().find(m => !m.hidden);
     if (openEl) closeModal(openEl);
@@ -165,7 +226,7 @@ function toGoogleFormsEmbed(url) {
 }
 
 /* =======================
-   Carrusel auto + loop (sin librerías)
+   Carrusel auto + loop (sin librerÃ­as)
    - loop real: al llegar al final vuelve al inicio
    - respeta prefers-reduced-motion
 ======================= */
@@ -198,7 +259,7 @@ function toGoogleFormsEmbed(url) {
   }
 
   function maxIndex() {
-    // último index que aún muestra una "página" completa
+    // Ãºltimo index que aÃºn muestra una "pÃ¡gina" completa
     return Math.max(0, slides.length - slidesPerView());
   }
 
@@ -217,7 +278,7 @@ function toGoogleFormsEmbed(url) {
 
   function renderDots() {
     dotsWrap.innerHTML = '';
-    // dots = cantidad de "páginas" posibles
+    // dots = cantidad de "pÃ¡ginas" posibles
     const pages = maxIndex() + 1;
     for (let i = 0; i < pages; i++) {
       const b = document.createElement('button');
@@ -234,7 +295,7 @@ function toGoogleFormsEmbed(url) {
       track.style.transition = 'none';
       requestAnimationFrame(() => {
         track.style.transform = `translate3d(${-(index * slideWidth())}px,0,0)`;
-        // re-habilitar transición
+        // re-habilitar transiciÃ³n
         requestAnimationFrame(() => {
           track.style.transition = 'transform 480ms ease';
         });
@@ -306,3 +367,7 @@ document.querySelectorAll('.anim-adorno-titulo svg .linea path').forEach(p => {
   p.style.strokeDasharray = `${len}`;
   p.style.strokeDashoffset = `${len}`;
 });
+
+
+
+

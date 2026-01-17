@@ -1407,6 +1407,69 @@ body {
   height: min(36vh, 620px);
 }
 
+.audio-toggle {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 1200;
+  width: 56px;
+  height: 56px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  color: #e2c48c;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+  backdrop-filter: blur(6px);
+}
+
+.audio-toggle:hover {
+  transform: scale(1.05);
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.audio-toggle__icon {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.audio-toggle .icon-play,
+.audio-toggle .icon-pause {
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.audio-toggle .icon-pause {
+  display: none;
+}
+
+.audio-toggle.is-playing .icon-pause {
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.audio-toggle.is-playing .icon-play {
+  display: none;
+}
+
+.audio-toggle:not(.is-playing) .icon-play {
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (max-width: 700px) {
+  .audio-toggle {
+    top: auto;
+    bottom: 18px;
+    right: 18px;
+  }
+}
+
 /* CTA abajo */
 .modal__actions {
   display: flex;
@@ -1668,21 +1731,31 @@ body {
     font-size: 20px;
   }
 
-  .modal__body--muted {
-    font-size: 15px;
-  }
+.modal__body--muted {
+  font-size: 15px;
+}
 
-  .modal__map iframe,
-  .modal__iframe iframe {
-    height: min(42vh, 420px);
-    border-radius: 12px;
-  }
+.modal__map iframe,
+.modal__iframe iframe {
+  height: min(42vh, 420px);
+  border-radius: 12px;
+}
 
-  /* Forzar mismos márgenes/padding que Dress Code en móviles */
-  #modal-map-ceremonia .modal__shell,
-  #modal-map-fiesta .modal__shell,
-  #modal-rsvp-ceremonia .modal__shell,
-  #modal-rsvp-fiesta .modal__shell {
+.modal__audio {
+  margin-top: 14px;
+  display: grid;
+  gap: 8px;
+}
+
+.modal__audio audio {
+  width: 100%;
+}
+
+/* Forzar mismos márgenes/padding que Dress Code en móviles */
+#modal-map-ceremonia .modal__shell,
+#modal-map-fiesta .modal__shell,
+#modal-rsvp-ceremonia .modal__shell,
+#modal-rsvp-fiesta .modal__shell {
     width: 100%;
     max-width: 100%;
     padding: 12px;
