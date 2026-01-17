@@ -200,20 +200,20 @@ body {
 
 @media (max-width: 768px) {
   .countdown__inner {
-    padding: 32px 12px 46px;
+    padding: 28px 12px 42px;
   }
 
   .countdown__timer {
-    gap: 12px;
-    flex-wrap: wrap;
+    gap: 8px;
+    flex-wrap: nowrap;
   }
 
   .countdown__timer span {
-    font-size: 42px;
+    font-size: clamp(28px, 10vw, 38px);
   }
 
   .countdown__timer small {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .countdown__heart {
@@ -222,6 +222,10 @@ body {
 }
 
 @media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
   .hero-scroll {
     height: auto;
   }
@@ -229,6 +233,8 @@ body {
   .hero-grid {
     grid-template-columns: 1fr;
     height: auto;
+    width: 100%;
+    max-width: 100%;
   }
 
   .hero-sticky,
@@ -270,7 +276,19 @@ body {
   }
 
   .countdown__inner {
-    padding: 48px 12px 60px;
+    padding: 28px 12px 42px;
+  }
+
+  .countdown__wrap,
+  .guests__wrap,
+  .events__wrap,
+  .gallery__wrap,
+  .party__wrap,
+  .ig__wrap,
+  .prefoot__wrap,
+  .foot__wrap {
+    width: 100%;
+    max-width: 100%;
   }
 
   .countdown__timer {
@@ -1401,8 +1419,19 @@ body {
   }
 
   .modal__panel {
-    border-radius: 18px;
-    padding: 16px 14px 14px;
+    border-radius: 0;
+    padding: 20px 16px 18px;
+    max-height: calc(100vh - 40px);
+    overflow: auto;
+  }
+
+  .modal__close {
+    right: 16px;
+    top: 12px;
+    width: 36px;
+    height: 36px;
+    font-size: 26px;
+    line-height: 36px;
   }
 
   .modal__icon {
@@ -1412,6 +1441,7 @@ body {
 
   .modal__title {
     font-size: 28px;
+    padding: 0 36px;
   }
 
   .modal__body {
@@ -1444,8 +1474,32 @@ body {
   }
 
   .modal__panel {
-    margin: 12px;
-    padding: 18px 14px 16px;
+    margin: 0;
+    border-radius: 0;
+    padding: 20px 16px 18px;
+    max-height: calc(100vh - 40px);
+    overflow: auto;
+  }
+
+  .modal__corner {
+    display: none;
+  }
+
+  .modal__close {
+    right: 16px;
+    top: 12px;
+    width: 36px;
+    height: 36px;
+    font-size: 26px;
+    line-height: 36px;
+  }
+
+  .modal__icon {
+    margin-top: 8px;
+  }
+
+  .modal__title {
+    padding: 0 36px;
   }
 
   .modal__map iframe,
