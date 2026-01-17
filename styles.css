@@ -351,8 +351,8 @@ body {
 
   #modal-map-ceremonia .modal__icon,
   #modal-map-fiesta .modal__icon {
-    width: 64px;
-    height: 64px;
+    width: 100px;
+    height: 80px;
   }
 }
 
@@ -1290,17 +1290,22 @@ body {
    ========================================================= */
 .modal__close {
   position: absolute;
-  right: 70px;
-  top: 61px;
+  right: 22px;
+  top: 22px;
   width: 44px;
   height: 44px;
   border: 0;
-  background: transparent;
-  font-size: 32px;
+  border-radius: 999px;
+  background: rgba(35, 36, 37, .12);
+  font-size: 28px;
   line-height: 44px;
   cursor: pointer;
   color: #1f2021;
-  z-index: 3;
+  z-index: 80;
+}
+
+.modal__close:hover {
+  background: rgba(35, 36, 37, .18);
 }
 
 .modal__icon {
@@ -1426,6 +1431,44 @@ body {
     overflow: auto;
   }
 
+  #modal-rsvp-ceremonia .modal__close {
+    right: 18px !important;
+    top: 18px !important;
+    width: 36px;
+    height: 36px;
+    font-size: 26px;
+    line-height: 36px;
+  }
+
+  #modal-map-ceremonia .modal__close {
+    right: 18px !important;
+    top: 18px !important;
+    width: 36px;
+    height: 36px;
+    font-size: 26px;
+    line-height: 36px;
+  }
+
+    #modal-rsvp-fiesta .modal__close {
+    right: 18px !important;
+    top: 18px !important;
+    width: 36px;
+    height: 36px;
+    font-size: 26px;
+    line-height: 36px;
+  }
+
+  #modal-map-ceremonia .modal__close {
+    right: 18px !important;
+    top: 18px !important;
+    width: 36px;
+    height: 36px;
+    font-size: 26px;
+    line-height: 36px;
+  }
+
+
+
   .modal__close {
     right: 16px;
     top: 12px;
@@ -1482,17 +1525,23 @@ body {
     overflow: auto;
   }
 
+
+
   .modal__corner {
     display: none;
   }
 
+  .modal__shell::before {
+    display: none;
+  }
+
   .modal__close {
-    right: 16px;
-    top: 12px;
-    width: 36px;
-    height: 36px;
-    font-size: 26px;
-    line-height: 36px;
+    right: 16px !important;
+    top: 16px !important;
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 26px !important;
+    line-height: 36px !important;
   }
 
   .modal__icon {
@@ -1564,6 +1613,109 @@ body {
 .gallery .anim-adorno-titulo svg,
 .gallery .anim-galeria svg {
   color: currentColor;
+}
+
+/* Mobile: modales full width + botón cerrar unificado */
+@media (max-width: 700px) {
+  .modal {
+    padding: 0;
+    align-items: stretch;
+    justify-items: stretch;
+  }
+
+  .modal__shell {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    border-radius: 0;
+    overflow: hidden;
+  }
+
+  .modal__panel {
+    margin: 0;
+    border-radius: 20px;
+    padding: 22px 18px 20px;
+    height: auto;
+    max-height: calc(100vh - 24px);
+    overflow: auto;
+  }
+
+  .modal__close {
+    right: 12px;
+    top: 12px;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    line-height: 40px;
+  }
+
+  .modal__icon {
+    width: 66px;
+    height: 66px;
+    margin-top: 8px;
+  }
+
+  .modal__title {
+    font-size: 28px;
+    padding: 0 24px;
+  }
+
+  .modal__body {
+    font-size: 17px;
+  }
+
+  .modal__body--lead {
+    font-size: 20px;
+  }
+
+  .modal__body--muted {
+    font-size: 15px;
+  }
+
+  .modal__map iframe,
+  .modal__iframe iframe {
+    height: min(42vh, 420px);
+    border-radius: 12px;
+  }
+
+  /* Forzar mismos márgenes/padding que Dress Code en móviles */
+  #modal-map-ceremonia .modal__shell,
+  #modal-map-fiesta .modal__shell,
+  #modal-rsvp-ceremonia .modal__shell,
+  #modal-rsvp-fiesta .modal__shell {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    border-radius: 0;
+  }
+
+  #modal-map-ceremonia .modal__panel,
+  #modal-map-fiesta .modal__panel,
+  #modal-rsvp-ceremonia .modal__panel,
+  #modal-rsvp-fiesta .modal__panel {
+    margin: 0;
+    max-width: none;
+    border-radius: 20px;
+    padding: 22px 18px 20px;
+    height: auto;
+    max-height: calc(100vh - 24px);
+  }
+
+  #modal-map-ceremonia .modal__map iframe,
+  #modal-map-fiesta .modal__map iframe {
+    height: min(60vh, 520px);
+    border-radius: 12px;
+  }
+
+  #modal-rsvp-ceremonia .modal__title,
+  #modal-rsvp-fiesta .modal__title {
+    padding: 0 24px;
+  }
+
+  .modal__corner,
+  .modal__shell::before {
+    display: none;
+  }
 }
 
 .gallery .anim-adorno-titulo svg path,
@@ -2407,6 +2559,70 @@ party__subtitle.party__title {
   line-height: 1.4;
 }
 
+#modal-rsvp-ceremonia .modal__close {
+  position: absolute;
+  right: 70px;
+  top: 50px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(35, 36, 37, .12);
+  font-size: 28px;
+  line-height: 44px;
+  cursor: pointer;
+  color: #1f2021;
+  z-index: 80;
+}
+
+#modal-map-ceremonia .modal__close {
+  position: absolute;
+  right: 70px;
+  top: 70px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(35, 36, 37, .12);
+  font-size: 28px;
+  line-height: 44px;
+  cursor: pointer;
+  color: #1f2021;
+  z-index: 80;
+}
+
+#modal-map-fiesta .modal__close {
+  position: absolute;
+  right: 70px;
+  top: 70px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(35, 36, 37, .12);
+  font-size: 28px;
+  line-height: 44px;
+  cursor: pointer;
+  color: #1f2021;
+  z-index: 80;
+}
+
+#modal-rsvp-fiesta .modal__close {
+  position: absolute;
+  right: 70px;
+  top: 47px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(35, 36, 37, .12);
+  font-size: 28px;
+  line-height: 44px;
+  cursor: pointer;
+  color: #1f2021;
+  z-index: 80;
+}
+
 
 /* BotÃ³n cerrar: consistente y visible */
 #modalDressCode .modal__close {
@@ -2459,6 +2675,100 @@ party__subtitle.party__title {
     margin-top: 12px;
   }
 
+}
+
+@media (max-width: 640px) {
+  #modalDressCode {
+    padding: 0;
+    align-items: stretch;
+    justify-items: stretch;
+  }
+
+  #modalDressCode .modal__shell {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    border-radius: 0;
+  }
+
+  #modalDressCode .modal__panel {
+    margin: 0;
+    border-radius: 20px;
+    padding: 22px 18px 20px;
+    max-height: calc(100vh - 24px);
+  }
+
+  #modalDressCode .modal__close {
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 24px;
+    z-index: 80;
+  }
+
+  #modalDressCode .dress-tags {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  #modalDressCode .dress-tag {
+    width: 100%;
+    text-align: center;
+  }
+
+  #modalDressCode .dress-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  #modalDressCode {
+    padding: 0;
+    align-items: stretch;
+    justify-items: stretch;
+  }
+
+  #modal-rsvp-ceremonia .modal__shell {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    border-radius: 0;
+  }
+
+  #modal-rsvp-ceremonia .modal__panel {
+    margin: 0;
+    border-radius: 20px;
+    padding: 22px 18px 20px;
+    max-height: calc(100vh - 24px);
+  }
+
+  #modal-rsvp-ceremonia .modal__close {
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 24px;
+    z-index: 80;
+  }
+
+  #modal-rsvp-ceremonia .dress-tags {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  #modal-rsvp-ceremonia .dress-tag {
+    width: 100%;
+    text-align: center;
+  }
+
+  #modal-rsvp-ceremonia .dress-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }
 
 /* =========================================================
@@ -2863,4 +3173,80 @@ party__subtitle.party__title {
   padding: 24px 22px 34px;
   text-align: center;
   opacity: .85;
+}
+
+/* Override final: asegurar ancho tipo Dress Code en el resto de modales (mobile) */
+@media (max-width: 820px) {
+
+  #modal-map-ceremonia .modal__shell,
+  #modal-map-fiesta .modal__shell,
+  #modal-rsvp-ceremonia .modal__shell,
+  #modal-rsvp-fiesta .modal__shell,
+  #modal-dia-ceremonia .modal__shell,
+  #modal-dia-fiesta .modal__shell {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    border-radius: 0;
+  }
+
+  #modal-map-ceremonia .modal__panel,
+  #modal-map-fiesta .modal__panel,
+  #modal-rsvp-ceremonia .modal__panel,
+  #modal-rsvp-fiesta .modal__panel,
+  #modal-dia-ceremonia .modal__panel,
+  #modal-dia-fiesta .modal__panel {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border-radius: 20px;
+    padding: 22px 18px 20px;
+    height: auto;
+    max-height: calc(100vh - 24px);
+    box-sizing: border-box;
+  }
+}
+
+/* Extra refuerzo: mismos márgenes que Dress Code en anchos medios */
+@media (max-width: 900px) {
+
+  #modal-map-ceremonia,
+  #modal-map-fiesta,
+  #modal-rsvp-ceremonia,
+  #modal-rsvp-fiesta,
+  #modal-dia-ceremonia,
+  #modal-dia-fiesta {
+    padding: 0;
+    align-items: center;
+    justify-items: center;
+  }
+
+  #modal-map-ceremonia .modal__shell,
+  #modal-map-fiesta .modal__shell,
+  #modal-rsvp-ceremonia .modal__shell,
+  #modal-rsvp-fiesta .modal__shell,
+  #modal-dia-ceremonia .modal__shell,
+  #modal-dia-fiesta .modal__shell {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    border-radius: 0;
+    box-sizing: border-box;
+  }
+
+  #modal-map-ceremonia .modal__panel,
+  #modal-map-fiesta .modal__panel,
+  #modal-rsvp-ceremonia .modal__panel,
+  #modal-rsvp-fiesta .modal__panel,
+  #modal-dia-ceremonia .modal__panel,
+  #modal-dia-fiesta .modal__panel {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border-radius: 20px;
+    padding: 22px 18px 20px;
+    height: auto;
+    max-height: calc(100vh - 24px);
+    box-sizing: border-box;
+  }
 }

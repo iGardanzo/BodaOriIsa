@@ -28,6 +28,7 @@ setInterval(tick, 1000);
   const countEl = document.querySelector('.guests__count');
   const namesWrap = document.querySelector('.guests__names');
   const section = document.querySelector('.guests');
+  const labelInvitados = document.querySelector('.guests__title');
 
   if (!countEl || !namesWrap || !section) return;
 
@@ -50,6 +51,12 @@ setInterval(tick, 1000);
   if (guests.length === 0) {
     section.style.display = 'none';
     return;
+  }
+  if (guests.length === 1) {
+    labelInvitados.textContent = 'INVITADO';
+  }
+  if (guests.length > 1) {
+    labelInvitados.textContent = 'INVITADOS';
   }
 
   // Actualizar cantidad
@@ -182,7 +189,7 @@ function toGoogleFormsEmbed(url) {
   let index = 0;
   let timer = null;
 
-  function slidesPerView(){
+  function slidesPerView() {
     // depende del flex-basis por breakpoint
     const w = viewport.getBoundingClientRect().width;
     if (w <= 560) return 1;
@@ -190,12 +197,12 @@ function toGoogleFormsEmbed(url) {
     return 3;
   }
 
-  function maxIndex(){
+  function maxIndex() {
     // último index que aún muestra una "página" completa
     return Math.max(0, slides.length - slidesPerView());
   }
 
-  function slideWidth(){
+  function slideWidth() {
     // ancho real de un slide (incluye gap)
     const el = slides[0];
     if (!el) return 0;
@@ -203,16 +210,16 @@ function toGoogleFormsEmbed(url) {
     return w + gapPx();
   }
 
-  function setActiveDot(){
+  function setActiveDot() {
     const dots = Array.from(dotsWrap.querySelectorAll('.gallery__dot'));
     dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
   }
 
-  function renderDots(){
+  function renderDots() {
     dotsWrap.innerHTML = '';
     // dots = cantidad de "páginas" posibles
     const pages = maxIndex() + 1;
-    for (let i = 0; i < pages; i++){
+    for (let i = 0; i < pages; i++) {
       const b = document.createElement('button');
       b.type = 'button';
       b.className = 'gallery__dot' + (i === 0 ? ' is-active' : '');
@@ -222,7 +229,7 @@ function toGoogleFormsEmbed(url) {
     }
   }
 
-  function applyTransform(animate){
+  function applyTransform(animate) {
     if (!animate || prefersReduced) {
       track.style.transition = 'none';
       requestAnimationFrame(() => {
@@ -237,13 +244,13 @@ function toGoogleFormsEmbed(url) {
     track.style.transform = `translate3d(${-(index * slideWidth())}px,0,0)`;
   }
 
-  function goTo(nextIndex, animate = false){
+  function goTo(nextIndex, animate = false) {
     index = Math.min(Math.max(0, nextIndex), maxIndex());
     applyTransform(animate);
     setActiveDot();
   }
 
-  function next(){
+  function next() {
     if (index >= maxIndex()) {
       // loop al inicio
       goTo(0, true);
@@ -252,7 +259,7 @@ function toGoogleFormsEmbed(url) {
     }
   }
 
-  function prev(){
+  function prev() {
     if (index <= 0) {
       // loop al final
       goTo(maxIndex(), true);
@@ -261,13 +268,13 @@ function toGoogleFormsEmbed(url) {
     }
   }
 
-  function startAuto(){
+  function startAuto() {
     if (prefersReduced) return;
     stopAuto();
     timer = setInterval(next, 3200); // velocidad del auto-slide
   }
 
-  function stopAuto(){
+  function stopAuto() {
     if (timer) clearInterval(timer);
     timer = null;
   }

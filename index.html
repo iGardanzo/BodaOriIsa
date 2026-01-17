@@ -987,34 +987,34 @@
               <div class="gallery__track" data-gallery-track>
                 <!-- Reemplazá src por tus 10 fotos -->
                 <article class="gallery__slide">
-                  <img class="gallery__img" src="assets/gallery/1.jpeg" alt="Foto 1" loading="lazy">
+                  <img class="gallery__img" src="assets/gallery/1.jpeg" alt="FOtoñoading="lazy">
                 </article>
                 <article class="gallery__slide">
-                  <img class="gallery__img" src="assets/gallery/2.jpeg" alt="Foto 2" loading="lazy">
+                  <img class="gallery__img" src="assets/gallery/2.jpeg" alt="FOtoñoading="lazy">
                 </article>
                 <article class="gallery__slide">
-                  <img class="gallery__img" src="assets/gallery/3.jpeg" alt="Foto 3" loading="lazy">
+                  <img class="gallery__img" src="assets/gallery/3.jpeg" alt="FOtoñoading="lazy">
                 </article>
                 <article class="gallery__slide">
-                  <img class="gallery__img" src="assets/gallery/4.jpeg" alt="Foto 4" loading="lazy">
+                  <img class="gallery__img" src="assets/gallery/4.jpeg" alt="FOtoñoading="lazy">
                 </article>
                 <article class="gallery__slide">
-                  <img class="gallery__img" src="assets/gallery/5.jpeg" alt="Foto 5" loading="lazy">
+                  <img class="gallery__img" src="assets/gallery/5.jpeg" alt="FOtoñoading="lazy">
                 </article>
                 <article class="gallery__slide">
-                  <img class="gallery__img" src="assets/gallery/6.jpeg" alt="Foto 6" loading="lazy">
+                  <img class="gallery__img" src="assets/gallery/6.jpeg" alt="FOtoñoading="lazy">
                 </article>
                 <article class="gallery__slide">
-                  <img class="gallery__img" src="assets/gallery/7.jpeg" alt="Foto 7" loading="lazy">
+                  <img class="gallery__img" src="assets/gallery/7.jpeg" alt="FOtoñoading="lazy">
                 </article>
                 <article class="gallery__slide">
-                  <img class="gallery__img" src="assets/gallery/8.jpeg" alt="Foto 8" loading="lazy">
+                  <img class="gallery__img" src="assets/gallery/8.jpeg" alt="FOtoñoading="lazy">
                 </article>
                 <article class="gallery__slide">
-                  <img class="gallery__img" src="assets/gallery/9.jpeg" alt="Foto 9" loading="lazy">
+                  <img class="gallery__img" src="assets/gallery/9.jpeg" alt="FOtoñoading="lazy">
                 </article>
                 <article class="gallery__slide">
-                  <img class="gallery__img" src="assets/gallery/10.jpeg" alt="Foto 10" loading="lazy">
+                  <img class="gallery__img" src="assets/gallery/10.jpeg" alt="FOtoñoading="lazy">
                 </article>
               </div>
             </div>
@@ -1162,7 +1162,7 @@
         </div>
 
         <h2 class="party__title">Fiesta</h2>
-        <p class="party__subtitle">Hagamos juntos una fiesta epica; aqui las coordenadas para que nada se nos escape.
+        <p class="party__subtitle">Hagamos juntos una fiesta épica; aquí las coordenadas para que nada se nos escape.
         </p>
 
 
@@ -1248,7 +1248,7 @@
 
               <div class="event-card__info">
                 <div class="info-box">
-                  <p>¿Qué canción va a encender la pista? Sumala a la playlist y bailamos juntos.</p>
+                  <p>¿Qué canción va a encender la pista? Súmala a la playlist y bailamos juntos.</p>
                   <a class="btn-gold"
                     href="https://open.spotify.com/playlist/4BDniaYTSoY4L5cOV9d3Am?si=233858baa51f40ca&pt=84d660910fc74c1ce11136862e24f983"
                     target="_blank" rel="noreferrer">Sumar mi cancion favorita</a>
@@ -1369,7 +1369,7 @@
 
               <div class="event-card__info">
                 <div class="info-box">
-                  <p>Ideas de look para brillar y estar comodisimo</p>
+                  <p>Ideas de look para brillar y estar comodísimo</p>
                   <!-- IMPORTANTE: usar tu sistema data-modal (no bootstrap) -->
                   <a href="#" class="btn-gold" data-modal="modalDressCode">Ver más</a>
                 </div>
@@ -1513,8 +1513,8 @@
             </svg>
           </div>
 
-          <h2 class="ig__title">Compartimos este día junto a vos</h2>
-          <p class="ig__subtitle">Compartí tus fotos y videos de ese hermoso día</p>
+          <h2 class="ig__title">Compartimos este día junto a ti</h2>
+          <p class="ig__subtitle">Comparte tus fotos de ese hermoso día</p>
 
           <!-- SVG instagram animado -->
           <div class="ig__icon anim-instagram" aria-hidden="true">
@@ -1612,17 +1612,17 @@
 
           <!-- Derecha: links a labels (sin Agendar) -->
           <nav class="prefoot__nav" aria-label="Accesos">
-            <a href="#ceremonia">Confirmar asistencia a ceremonia</a>
-            <a href="#fiesta">Confirmar asistencia a fiesta</a>
-            <a href="#musica">Sugerir canción</a>
-            <a href="#dresscode">Ver dress code</a>
+            <a href="#" data-modal="modal-rsvp-ceremonia">Confirmar asistencia a ceremonia</a>
+            <a href="#" data-modal="modal-rsvp-fiesta">Confirmar asistencia a fiesta</a>
+            <a href="#" data-modal="modal-musica">Sugerir canción</a>
+            <a href="#" data-modal="modalDressCode">Ver dress code</a>
           </nav>
         </div>
       </div>
     </section>
     <footer class="foot">
       <div class="foot__wrap">
-        <label>© 2026 · I&amp;O</small>
+        <label>© 11·04·2026 - Que sea una noche inolvidable - I&amp;O</small>
       </div>
     </footer>
   </main>
@@ -1631,6 +1631,98 @@
      OVERLAY (uno solo)
      ========================= -->
   <div id="modalOverlay" class="modal-overlay" hidden></div>
+
+  <!-- =========================
+     MODAL: SUGERIR CANCIÓN
+     ========================= -->
+  <div class="modal" id="modal-musica" role="dialog" aria-modal="true" aria-hidden="true" hidden>
+    <div class="modal__shell">
+      <div class="modal__corner corner-0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37" fill="none">
+          <g>
+            <path class="fondo-adorno" d="M37 0H0V37H37V0Z"></path>
+            <path class="punto-adorno" d="M0.75 37V33.79H3.38C20.18 33.79 33.79 20.17 33.79 3.38V0.75H36.99"></path>
+            <path class="circulo-adorno"
+              d="M5.80002 11.56C8.99223 11.56 11.58 8.97221 11.58 5.78C11.58 2.58779 8.99223 0 5.80002 0C2.60781 0 0.0200195 2.58779 0.0200195 5.78C0.0200195 8.97221 2.60781 11.56 5.80002 11.56Z">
+            </path>
+          </g>
+        </svg></div>
+      <div class="modal__corner corner-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37" fill="none">
+          <g>
+            <path class="fondo-adorno" d="M37 0H0V37H37V0Z"></path>
+            <path class="punto-adorno" d="M0.75 37V33.79H3.38C20.18 33.79 33.79 20.17 33.79 3.38V0.75H36.99"></path>
+            <path class="circulo-adorno"
+              d="M5.80002 11.56C8.99223 11.56 11.58 8.97221 11.58 5.78C11.58 2.58779 8.99223 0 5.80002 0C2.60781 0 0.0200195 2.58779 0.0200195 5.78C0.0200195 8.97221 2.60781 11.56 5.80002 11.56Z">
+            </path>
+          </g>
+        </svg></div>
+      <div class="modal__corner corner-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37" fill="none">
+          <g>
+            <path class="fondo-adorno" d="M37 0H0V37H37V0Z"></path>
+            <path class="punto-adorno" d="M0.75 37V33.79H3.38C20.18 33.79 33.79 20.17 33.79 3.38V0.75H36.99"></path>
+            <path class="circulo-adorno"
+              d="M5.80002 11.56C8.99223 11.56 11.58 8.97221 11.58 5.78C11.58 2.58779 8.99223 0 5.80002 0C2.60781 0 0.0200195 2.58779 0.0200195 5.78C0.0200195 8.97221 2.60781 11.56 5.80002 11.56Z">
+            </path>
+          </g>
+        </svg></div>
+      <div class="modal__corner corner-3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37" fill="none">
+          <g>
+            <path class="fondo-adorno" d="M37 0H0V37H37V0Z"></path>
+            <path class="punto-adorno" d="M0.75 37V33.79H3.38C20.18 33.79 33.79 20.17 33.79 3.38V0.75H36.99"></path>
+            <path class="circulo-adorno"
+              d="M5.80002 11.56C8.99223 11.56 11.58 8.97221 11.58 5.78C11.58 2.58779 8.99223 0 5.80002 0C2.60781 0 0.0200195 2.58779 0.0200195 5.78C0.0200195 8.97221 2.60781 11.56 5.80002 11.56Z">
+            </path>
+          </g>
+        </svg></div>
+
+      <button class="modal__close" type="button" data-close aria-label="Cerrar">✕</button>
+
+      <div class="modal__panel">
+        <div class="modal__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
+            <path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+              d="M46 8v32a8 8 0 1 1-4-6.9V14L22 18v18a8 8 0 1 1-4-6.9V16z" />
+          </svg>
+        </div>
+
+        <div class="modal__adorno">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 362 23" fill="none"
+            class="injectable adorno-titulo">
+            <g>
+              <path
+                d="M181.146 8.81658C181.216 8.81658 181.286 8.80658 181.346 8.77658C181.636 8.66658 181.776 8.34658 181.676 8.05658C181.666 8.01658 181.506 7.45658 182.076 6.65658C183.436 4.78658 188.796 1.63658 209.356 1.63658H361.336C361.646 1.63658 361.906 1.38658 361.906 1.06658C361.906 0.746582 361.656 0.496582 361.336 0.496582H209.356C189.166 0.496582 182.846 3.52658 181.096 6.07658C180.226 7.33658 180.566 8.33658 180.606 8.44658C180.696 8.67658 180.906 8.80658 181.136 8.80658L181.146 8.81658Z">
+              </path>
+              <path d="M181.146 22.5965L186.516 15.2365L181.146 7.32654L175.566 14.9565L181.146 22.5965Z"
+                fill="#c9a46a"></path>
+              <path
+                d="M267.326 1.26654C267.326 1.26654 280.216 1.20654 286.586 7.21654C286.586 7.21654 294.516 1.17654 304.986 1.07654L267.316 1.26654H267.326Z">
+              </path>
+              <path
+                d="M181.316 8.80658C181.546 8.80658 181.756 8.67658 181.836 8.44658C181.876 8.33658 182.216 7.34658 181.346 6.07658C179.596 3.53658 173.276 0.496582 153.086 0.496582H1.11626C0.806265 0.496582 0.546265 0.746582 0.546265 1.06658C0.546265 1.38658 0.796265 1.63658 1.11626 1.63658H153.096C173.656 1.63658 179.016 4.78658 180.376 6.65658C180.966 7.45658 180.786 8.02658 180.776 8.05658C180.686 8.34658 180.836 8.66658 181.126 8.77658C181.186 8.79658 181.256 8.80658 181.316 8.80658Z">
+              </path>
+              <path
+                d="M95.1363 1.26654C95.1363 1.26654 82.2463 1.20654 75.8763 7.21654C75.8763 7.21654 67.9463 1.17654 57.4763 1.07654L95.1363 1.26654Z">
+              </path>
+            </g>
+          </svg>
+        </div>
+
+        <h3 class="modal__title">Sugerir canción</h3>
+
+        <div class="modal__content">
+          <div class="modal__message">
+            <p class="modal__body modal__body--lead">¿Qué canción va a encender la pista?</p>
+            <p class="modal__body">Súmala a la playlist y bailamos juntos.</p>
+          </div>
+
+          <div class="modal__actions">
+            <a class="btn-gold"
+              href="https://open.spotify.com/playlist/4BDniaYTSoY4L5cOV9d3Am?si=233858baa51f40ca&pt=84d660910fc74c1ce11136862e24f983"
+              target="_blank" rel="noreferrer">Ir a la playlist</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- =========================
      MODAL: VESTUARIO
@@ -1731,10 +1823,10 @@
             </g>
           </svg>
           <h3 class="modal__title">Dress Code</h3>
-          <p class="dress-lede">Noche de otono, elegante relajado: queremos que brilles y estes comodo.</p>
+          <p class="dress-lede">Noche de oto&ntilde;o, elegante y relajado: queremos que brilles y est&eacute;s c&oacute;modo.</p>
           <div class="dress-tags">
             <span class="dress-tag">Noche</span>
-            <span class="dress-tag">Otono</span>
+            <span class="dress-tag">Oto&ntilde;o</span>
             <span class="dress-tag">Elegante</span>
             <span class="dress-tag">Interior / Exterior</span>
           </div>
@@ -1743,22 +1835,20 @@
           <section class="dress-col">
             <h4 class="dress-col__title">Hombre</h4>
             <ul class="dress-col__list">
-              <li>Camisa manga larga en tono neutro u oscuro.</li>
-              <li>Pantalón de vestir o chino oscuro.</li>
-              <li>Zapatos formales (no deportivos).</li>
-              <li>Saco o abrigo liviano para la brisa de otoño.</li>
-              <li>Accesorio: cinturón sobrio y reloj.</li>
+              <li>Atuendo elegante en tonos sobrios.</li>
+              <li>Camisa cl&aacute;sica.</li>
+              <li>Zapatos de vestir.</li>
+              <li>Abrigo liviano sugerido.</li>
             </ul>
           </section>
 
           <section class="dress-col">
             <h4 class="dress-col__title">Mujer</h4>
             <ul class="dress-col__list">
-              <li>Vestido midi o conjunto elegante en tonos tierra/joya.</li>
-              <li>Abrigo ligero: blazer, chal o saco fino.</li>
-              <li>Calzado de noche: taco medio o sandalia elegante.</li>
-              <li>Cartera pequeña o clutch; joyas delicadas.</li>
-              <li>Tip: evita blanco/ivory para no competir con la novia.</li>
+              <li>Vestido elegante o conjunto formal.</li>
+              <li>Calzado de noche.</li>
+              <li>Abrigo liviano sugerido.</li>
+              <li>Tip: evitar blanco o tonos muy claros.</li>
             </ul>
           </section>
         </div>
@@ -1999,7 +2089,7 @@
           </svg>
         </div>
 
-        <h3 class="modal__title">¿Te sumas a la ceremonia?</h3>
+        <h3 class="modal__title">&iquest;Te sumas a la ceremonia?</h3>
 
         <div class="modal__adorno">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 362 23" fill="none"
@@ -2027,7 +2117,7 @@
         <div class="modal__content">
           <div class="modal__message">
             <p class="modal__body modal__body--lead">Gracias por sumarte.</p>
-            <p class="modal__body">Completa el formulario en la siguiente pagina para reservar tu lugar.</p>
+            <p class="modal__body">Completa el formulario en la siguiente p&aacute;gina para reservar tu lugar.</p>
           </div>
 
           <div class="modal__actions">
@@ -2290,7 +2380,7 @@
           </svg>
         </div>
 
-        <h3 class="modal__title">¿Te sumas a la fiesta?</h3>
+        <h3 class="modal__title">&iquest;Te sumas a la fiesta?</h3>
 
         <div class="modal__adorno">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 362 23" fill="none"
@@ -2318,7 +2408,7 @@
         <div class="modal__content">
           <div class="modal__message">
             <p class="modal__body modal__body--lead">Ya casi estamos listos para la fiesta.</p>
-            <p class="modal__body">Completa el formulario en la siguiente pagina y aseguramos tu lugar en la pista.</p>
+            <p class="modal__body">Completa el formulario en la siguiente p&aacute;gina y aseguramos tu lugar en la pista.</p>
           </div>
 
           <div class="modal__actions">
@@ -2490,3 +2580,11 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
