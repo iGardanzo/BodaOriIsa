@@ -23,7 +23,7 @@ tick();
 setInterval(tick, 1000);
 
 (function () {
-  const MAX_GUESTS = 5;
+  const MAX_GUESTS = 6;
 
   const countEl = document.querySelector('.guests__count');
   const namesWrap = document.querySelector('.guests__names');
