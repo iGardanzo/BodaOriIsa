@@ -73,6 +73,41 @@ setInterval(tick, 1000);
     namesWrap.appendChild(pill);
   });
 
+  const guestsForm = rawGuests
+    .split('|')
+    .map(g => g.trim())
+    .filter(Boolean)
+    .slice(0, MAX_GUESTS);
+
+  const guestsText = guestsForm.join('\n'); // un invitado por línea
+  console.log(JSON.stringify(guestsForm))
+
+  function buildFormUrl(baseUrl, entryAsistentes, value) {
+    const u = new URL(baseUrl);
+    u.searchParams.set(`entry.${entryAsistentes}`, value);
+    return u.toString();
+  }
+
+  const FORM_CEREMONIA = 'https://docs.google.com/forms/d/e/1FAIpQLSe4Y4VoVHz4-bTknKdT-3SWuEb4XsJZEsTQOuKBjY5YwCeubQ/viewform';
+  const FORM_FIESTA = 'https://docs.google.com/forms/d/e/1FAIpQLSevfrJlPv1tW9nGVMrbwr4JpobhW5U8zR1c6CPJX3OiVikHpA/viewform';
+
+  // PONÉ LOS IDS REALES (los sacás del enlace prellenado)
+  const ENTRY_ASISTENTES_CEREMONIA = '1864327700';
+  const ENTRY_ASISTENTES_FIESTA = '1864327700';
+
+  const linkCer = document.getElementById('rsvpCeremonia');
+  if (linkCer) {
+    linkCer.href = buildFormUrl(FORM_CEREMONIA, ENTRY_ASISTENTES_CEREMONIA, guestsText);
+  }
+
+  const linkFiesta = document.getElementById('rsvpFiesta');
+  if (linkFiesta) {
+    linkFiesta.href = buildFormUrl(FORM_FIESTA, ENTRY_ASISTENTES_FIESTA, guestsText);
+  }
+
+  console.log('CEREMONIA href:', linkCer?.href);
+  console.log('FIESTA href:', linkFiesta?.href);
+
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -84,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const tryPlayAudio = () => {
     if (!bgAudio) return;
     const playAttempt = bgAudio.play();
-    if (playAttempt && playAttempt.catch) playAttempt.catch(() => {});
+    if (playAttempt && playAttempt.catch) playAttempt.catch(() => { });
   };
 
   const syncAudioToggle = () => {
