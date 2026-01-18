@@ -93,7 +93,7 @@ setInterval(tick, 1000);
 
   // PONÉ LOS IDS REALES (los sacás del enlace prellenado)
   const ENTRY_ASISTENTES_CEREMONIA = '1864327700';
-  const ENTRY_ASISTENTES_FIESTA = '1864327700';
+  const ENTRY_ASISTENTES_FIESTA = '13382714';
 
   const linkCer = document.getElementById('rsvpCeremonia');
   if (linkCer) {
