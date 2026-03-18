@@ -88,12 +88,12 @@ setInterval(tick, 1000);
     return u.toString();
   }
 
-  const FORM_CEREMONIA = 'https://docs.google.com/forms/d/e/1FAIpQLSe4Y4VoVHz4-bTknKdT-3SWuEb4XsJZEsTQOuKBjY5YwCeubQ/viewform';
-  const FORM_FIESTA = 'https://docs.google.com/forms/d/e/1FAIpQLSevfrJlPv1tW9nGVMrbwr4JpobhW5U8zR1c6CPJX3OiVikHpA/viewform';
+  const FORM_CEREMONIA = 'https://docs.google.com/forms/d/e/1FAIpQLSevfrJlPv1tW9nGVMrbwr4JpobhW5U8zR1c6CPJX3OiVikHpA/viewform';
+  const FORM_FIESTA = 'https://docs.google.com/forms/d/e/1FAIpQLSe4Y4VoVHz4-bTknKdT-3SWuEb4XsJZEsTQOuKBjY5YwCeubQ/viewform';
 
   // PONÉ LOS IDS REALES (los sacás del enlace prellenado)
-  const ENTRY_ASISTENTES_CEREMONIA = '1864327700';
-  const ENTRY_ASISTENTES_FIESTA = '13382714';
+  const ENTRY_ASISTENTES_FIESTA  = '1864327700';
+  const ENTRY_ASISTENTES_CEREMONIA = '13382714';
 
   const linkCer = document.getElementById('rsvpCeremonia');
   if (linkCer) {
